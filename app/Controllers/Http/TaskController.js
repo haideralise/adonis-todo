@@ -35,6 +35,16 @@ class TaskController {
 
     return response.redirect('back')
   }
+
+  async destroy ({ params, session, response }) {
+    const task = await Task.find(params.id)
+    await task.delete()
+
+    // Fash success message to session
+    session.flash({ notification: 'Task deleted!' })
+
+    return response.redirect('back')
+  }
 }
 
 module.exports = TaskController

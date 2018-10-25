@@ -3,6 +3,11 @@
 @section('content')
 
 <div class="box">
+@if(old('notification'))
+    <div class="notification is-success">
+        {{ old('notification') }}
+    </div>
+@endif
   <h2 class="title">New Task</h2>
 
   <form action="/tasks" method="POST">
@@ -43,12 +48,16 @@
                 {{ task.title }}
               </td>
               <td>
-                <button class="button is-danger is-outlined">
+              <form action="{{ 'tasks/' + task.id + '?_method=DELETE' }}" method="POST">
+                {{ csrfField() }}
+
+                <button type="submit" class="button is-danger is-outlined">
                   <span>DELETE</span>
                   <span class="icon is-small">
                     <i class="fa fa-times" aria-hidden="true"></i>
                   </span>
                 </button>
+              </form>
               </td>
             </tr>
           @else

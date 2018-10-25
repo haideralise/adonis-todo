@@ -11,20 +11,20 @@
 */
 
 /** @type {import('@adonisjs/lucid/src/Factory')} */
-const weeklySettings = use('App/Models/RosterWeeklySetting')
+const weeklySettings = use('App/Models/RosterStatus')
 class RosterWeeklySettingSeeder {
   async run () {
 
     const rosterWeeklySettings = new weeklySettings();
 
     rosterWeeklySettings.id = 0;
-    rosterWeeklySettings.monday = 1 ;
-      rosterWeeklySettings.tuesday = 1;
-      rosterWeeklySettings.wednesday = 1;
-      rosterWeeklySettings.thursday = 1;
-      rosterWeeklySettings.friday = 1;
-      rosterWeeklySettings.saturday = 0;
-      rosterWeeklySettings.sunday = 0;
+    rosterWeeklySettings.wd0 = 1 ;
+      rosterWeeklySettings.wd1 = 1;
+      rosterWeeklySettings.wd2 = 1;
+      rosterWeeklySettings.wd3 = 1;
+      rosterWeeklySettings.wd4 = 1;
+      rosterWeeklySettings.wd5 = 0;
+      rosterWeeklySettings.wd6 = 0;
       rosterWeeklySettings.starts_at = '9:00:00';
       rosterWeeklySettings.ends_at = '18:00:00';
      await rosterWeeklySettings.save();
